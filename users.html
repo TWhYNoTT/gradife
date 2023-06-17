@@ -9,7 +9,7 @@
             overflow: hidden;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
-            
+
         }
 
         .tab button {
@@ -117,6 +117,7 @@
             background-color: #0c1657;
 
         }
+
         .edit {
             background-color: #0c1657;
             transition: background-color .6s;
@@ -127,9 +128,11 @@
             background-color: #818181;
             transition: background-color .6s;
         }
+
         .edit:hover {
             background-color: #050934;
         }
+
         .delete:hover {
             background-color: #212122;
         }
@@ -214,9 +217,10 @@
             float: left;
             font-weight: bold;
         }
+
         h1 {
-            font-style: italic; 
-            width:20%;
+            font-style: italic;
+            width: 20%;
             background-color: #121111;
             color: #fff;
             text-align: center;
@@ -391,14 +395,20 @@
                 'x-auth-token': token
             }
         })
-            .then(response => response.json())
-            .then(users => {
-                users.forEach(user => {
-                    // Add each user row to the table
-                    const row = document.createElement('tr');
-                    row.setAttribute('data-id', user._id);
-                    // <td>${user._id}</td>
-                    row.innerHTML = `
+
+            .then(async response => {
+                if (response.status = 403) {
+                    userTableBody.innerHTML = `<td colspan="10" style="font-size:25px"><center><b>لا تملك الصلاحيه للدخول لهذه الصفحه<b></center></td>`
+                }
+                else if (response.ok) {
+                    users = await response.json()
+
+                    users.forEach(user => {
+                        // Add each user row to the table
+                        const row = document.createElement('tr');
+                        row.setAttribute('data-id', user._id);
+                        // <td>${user._id}</td>
+                        row.innerHTML = `
               <td>${user.firstName}</td>
               <td>${user.lastName}</td>
               <td>${user.email}</td>
@@ -408,9 +418,11 @@
                 <button class="delete">حذف</button>
               </td>
             `;
-                    userTableBody.appendChild(row);
-                });
-            });
+                        userTableBody.appendChild(row);
+                    });
+                }
+            }
+            );
 
         // Close the edit popup when the close button or outside area is clicked
         editPopup.addEventListener('click', event => {
@@ -444,7 +456,7 @@
                     row.querySelector('td:nth-child(1)').textContent = user.firstName;
                     row.querySelector('td:nth-child(2)').textContent = user.lastName;
                     row.querySelector('td:nth-child(3)').textContent = user.email;
-                    row.querySelector('td:nth-child(4)').textContent = user.isAdmin ? 'Yes' : 'No';
+                    row.querySelector('td:nth-child(4)').textContent = user.isAdmin ? 'نعم' : 'لا';
                     // Close the edit popup
                     editPopup.style.visibility = 'hidden';
                 });
