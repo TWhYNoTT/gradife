@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"> 
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="Css/font-awesome.min.css">
+    <link rel="stylesheet" href="Css/MainPage.css">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background-color: #3b65b9;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            padding: 12px 16px;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <title>رعاية الشباب</title>
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <i class="fa fa-angle-double-up"></i>
+    </button>
+    <!-- Header section -->
+    <header>
+        <div class="content-header">
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="images/download (4).jpg" alt="النشاط الرياضي">
+                </div><!-- /.header-item-image -->
+                <a href="#sport-activities" target="_self" title="النشاط الرياضي">
+                    النشاط الرياضي
+                </a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="imgs/ثقافي.png" alt="النشاط الثقافي">
+                </div><!-- /.header-item-image -->
+                <a href="#RegisterCultural-link"  title="النشاط الثقافي">النشاط الثقافي</a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="imgs/اجتماعي.jpg" alt="النشاط الاجنماعي وشئون الطلاب">
+                </div><!-- /.header-item-image -->
+                <a href="#RegisterSocial-link" target="_self" title="النشاط الاجتماعي وشئون الطلاب">النشاط الاجتماعي وشئون الطلاب</a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="imgs/جوالة.png" alt="النشاط الجوالة والخدمة العامة">
+                </div><!-- /.header-item-image -->
+                <a href="#RegisterScouting-link" target="_self" title="النشاط الجوالة والخدمة العامة">النشاط الجوالة والخدمة العامة</a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="images/الفني.jpg" alt="النشاط الفني">
+                </div><!-- /.header-item-image -->
+                <a href="#RegisterArtistic-link" target="_self" title="النشاط الفني">النشاط الفني</a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+                <div class="header-item-image">
+                    <img src="imgs/الاسر.png" alt="النشاط الاسر والرحلات">
+                </div><!-- /.header-item-image -->
+                <a href="#RegisterTrips-link" target="_self" title="نشاط الاسر والرحلات">نشاط الاسر والرحلات</a>
+            </div><!-- /.header-item -->
+            <div class="header-item">
+            <div class="header-item-image">
+                <img src="images/علمي.jpg" alt="النشاط لعلمي والتكنولوجي">
+            </div><!-- /.header-item-image -->
+            <a href="#RegisterScientific-link" target="_self" title="النشاط لعلمي والتكنولوجي">النشاط العلمي والتكنولوجي</a>
+            </div><!-- /.header-item -->
+        </div><!-- /.content-header -->
+
+        <div class="content-logo">
+            <!-- <span> أدارة رعايةالشباب <br>كلية العلوم  </span>
+            <div class="logo-img">
+                <a href="https://www.aun.edu.eg/science/ar" target="_blank">
+                    <img src="imgs/علوم.png" alt=""
+                draggable="false">
+                </a>
+            </div>/.logo-img -->
+            <div class="dropdown">
+                <button class="dropdown-btn">خدمات اخرى</button>
+                <div class="dropdown-content">
+                    <a href="login.html" class="login-btn">تسجيل دخول</a>
+                    <a href="register.html" class="register-btn">تسجيل مستخدم جديد</a>
+                    <a href="activityCheck.html">التحقق من حالة الطلب</a>
+                </div>
+            </div>
+        </div><!-- /.content-logo -->
+    </header>
+    <!-- scroll go to top -->
+
+    <!-- Home section -->
+    <div class="home" id="home-id">
+        <div class="overlay">
+            <div class="home-content">
+                <p class="home-desc">رعاية الشباب</p>
+                <h2 class="home-title">طلاب جامعة أسيوط</h2>
+                <p class="home-desc">كلية العلوم</p>
+            </div><!-- /.home-content -->
+        </div><!-- /.overlay -->
+    </div><!-- /.Home -->  
+
+    <!-- About Section -->
+    <div class="about pd-y">
+        <div class="container">
+            <h3 class="about-title">            رسالة رعاية الشباب            </h3>
+            <div class="about-desc">
+                تقوم إدارة رعاية الشباب بكلية  العلوم على النهوض بالشباب وتمكينهم من استثمار طاقاتهم وصقل مواهبهم وتنمية قدراتهم على التفكير والإبداع وذلك من خلال ممارسة الأنشطة المختلفة الثقافية والاجتماعية والفنية والرياضية والجوالة والخدمة العامة والرحلات حيث تعمل هذه الأنشطة على شغل وقت فراغهم بطريقة ايجابية بجانب تقديم بعض الخدمات والمساعدات المختلفة للطلاب وذلك تحت ريادة وتوجيه من قبل أعضاء هيئة التدريس بالكلية.
+            </div><!-- /.about-desc -->
+        </div><!-- /.container -->
+    </div>
+    <!-- aim Section --> <!-- رسالة رعاية الشباب -->
+    <div class="aim pd-y">
+        <div class="container">
+            <h3 class="aim-title">
+                أهداف رعاية الشباب
+            </h3>
+            <div class="aim-desc">
+                    1- التعرف على احتياجات الطلاب. <br>
+                    2- إكساب الشباب القدرة على العمل الاجتماعي. <br>
+                    3- إقامة علاقات ايجابية ناجحة.<br>
+                    4- تنمية الاتجاهات السليمة.<br>
+                    5- الإسهام في المشروعات العامة.<br>
+                    6- تنمية روح الأخوة والتعاون.<br>
+                    7- تنمية روح المسئولية لدى الشباب.<br>
+                    8- إكساب الشباب الخصائص التي تساعدهم على التكيف.<br>
+                    9- تنمية قدرات الشباب من خلال برامج الأنشطة.<br>
+                    10- معاونة الشباب في حل المشكلات الفردية.
+            </div><!-- /.aim-desc -->
+        </div><!-- /.container -->
+    </div><!-- /.aim -->
+    <!-- content-title for activities-->
+    <div class="content-title">
+        <div class="main-title">
+            <h2 >
+                تهدف الادارة الى دعم الطلاب ورعايتهم من خلال ممارستهم للانشطة التالية:
+            </h2>
+        </div><!-- /.main-title -->
+    </div><!-- /.content-title -->
+
+    <!-- activities-content section -->
+    <div class="activities-content" id="sport-activities">
+        <div class="container">
+            <h3 class="activities-content-title">النشاط الرياضي</h3>
+            <div class="activities-content-desc">
+                1- الاشتراك فى دورى الجامعة للالعاب الجماعية و الفردية . <br>
+                2- تنظيم دورى الجامعات فى كرة اليد بالتنسيق مع اللجنة الرياضية بالجامعة .<br>
+                3- التدريب فى صالة اللياقة البدنية بالكلية للطلبة و الطالبات .<br>
+                4- الاشراف على المراكز الرياضية خلال العام ( تنس طاولة – كرة سرعة – اير هوكى – ملاعب)<br>
+                5- عمل الصيانة للملاعب و المراكز الرياضية .<br>
+                6- اقامة ماراثون تجارة الاول للجرى داخل الحرم الجامعى .<br>
+                7- اقامة المهرجان الرياضى الترفيهى .<br>
+                8- الانشطه الرياضيه لجميع الطلاب المستمره يوميا.
+            </div>
+
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterSports.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div>
+        </div>
+    </div><!-- /.activities-content -->
+    <!-- activities-content section -->
+    <div class="activities-content pd-y" id="RegisterCultural-link">
+        <div class="container">
+            <h3 class="activities-content-title">النشاط الثقافي
+            </h3>
+            <div class="activities-content-desc">
+                1-  عمل ورش فى تثقيف الطلبه فى مجال دورى المعلومات<br>
+                2- مسابقه القران الكريم<br>
+                3- مسابقه الشعر والزجل والالقاء والمقال<br>
+                4- دوره فى الصحافه وذلك تعلم الطلاب كيفيه كتابه الخبر وكيفيه انشاء مجلات ثقافيه<br>
+                5 اقامة معرض الكتاب بالاشتراك مع الهيئة العامة لقصور الثقافة.
+            </div>
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterCultural.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div>
+        </div>
+    </div><!-- /.activities-content -->
+
+    <!-- activities-content section --> 
+    <div class="activities-content pd-y" id="RegisterSocial-link">
+        <div class="container">
+            <h3 class="activities-content-title"> النشاط الاجتماعي وشئون الطلاب</h3>
+            <div class="activities-content-desc">
+                1- عمل مسابقه الطالب و الطالبه المثالين على مستوى الكليه.<br>
+                2- عمل مسابقه الكليه للشطرنج.<br>
+                3- تدريب الطلاب فى البنوك والشركات خلال الاجازه الصيفيه
+            </div><!-- /.activities-content-desc -->
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterSocial.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div><!-- /.link-activity -->
+        </div><!-- /.container -->
+    </div><!-- /.activities-content -->
+
+    <!-- activities-content section -->
+    <div class="activities-content pd-y" id="RegisterScouting-link">
+        <div class="container">
+            <h3 class="activities-content-title"> نشاط الجوالة والخدمة العامة
+            </h3>
+            <div class="activities-content-desc">
+                1- الاشتراك فى فعاليات وتنظيم حفل الافتتاح.<br>
+                2- عمل معسكر اعداد القاده.<br>
+                3- عمل معرض كشفى داخل حرم الكليه مع الاشتراك فى فاعليات وتنظيم حفل غنائى.<br>
+                4- تنظيم يوم كشفى ارشادى داخل الكليه مع عمل ورش تدريبيه لطلبه الكليه.<br>
+                5- عمل يوم كشفى ارشادى بنادى حارس للكشافه البحريه.<br>
+                6- الاشتراك فى الدوره الكشفيه التى تنظمها اداره الجواله والخدمه العامه بالجامعه على مستوى كليات الجامعه.<br>
+                7- الاشتراك فى مسابقه الورش الثقافيه الاولى التى تنظمها اداره الجواله والخدمه العامه بالجامعه .
+            </div><!-- /.activities-content-desc -->
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterScouting.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div><!-- /.link-activity -->
+        </div><!-- /.container -->
+    </div><!-- /.activities-content -->
+    <!-- sport section -->
+
+    <!-- activities-content section -->
+    <div class="activities-content pd-y" id="RegisterArtistic-link">
+        <div class="container">
+            <h3 class="activities-content-title"> النشاط الفني
+            </h3>
+            <div class="activities-content-desc">
+                1- المشاركه فى مهرجان المسرح القومى على مستوى الدوله.<br>
+                2- المشاركه فى مهرجان ابداع.<br>
+                3- اقامه معرض فنون تشكيليه.<br>
+                4- مسابقه الفنون التشكيليه.<br>
+                5- مسابقه تجاره GOT TALLAN فى جميع المجالات الفنيه.<br>
+                6- الاشتراك فى المسابقات الفنيه المتنوعه على مستوى الجامعه.
+            </div><!-- /.activities-content-desc -->
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterArtistic.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div><!-- /.link-activity -->
+        </div><!-- /.container -->
+    </div><!-- /.activities-content -->
+
+    <!-- activities-content section -->
+    <div class="activities-content pd-y" id="RegisterTrips-link">
+        <div class="container">
+            <h3 class="activities-content-title">نشاط الاسر والرحلات
+            </h3>
+            <div class="activities-content-desc">
+                1- عمل المعارض الفنيه للاسر. <br>
+                2- عمل المجلات والمسابقات الثقافية.<br>
+                3- الاشراف على دورات تنس الطاوله و الشطرنج و اللقاءات الرياضيه بالكلية.<br>
+                4- عمل الزيادات الاجتماعيه الى دور رعايه الاتيام والمسنين.<br>
+                5- حملات التبرع بالدم.<br>
+                6- حملات التوعيه للطلبة.<br>
+                7- الندوات الفنيه والرياضيه المتنوعة.<br>
+                8- الاشراف على الرحلات لليوم الواحد.<br>
+                9- الاشراف على الرحلات الطلابية.<br>
+                10- عمل معسكر تدريبى للطلبة والطالبات.<br>
+                11- المشاركه فى معسكر اعداد القاده بالجامعة.<br>
+                12- عمل مهرجان لجنه الاسر السنوى شامل جميع الانشطه.<br>
+            </div><!-- /.activities-content-desc -->
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterTrips.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div><!-- /.link-activity -->
+        </div><!-- /.container -->
+    </div><!-- /.activities-content -->
+
+    <!-- activities-content section -->
+    <div class="activities-content pd-y" id="RegisterScientific-link">
+        <div class="container">
+            <h3 class="activities-content-title">النشاط العلمي والتكنولوجي
+            </h3>
+            <div class="activities-content-desc">
+                1- عمل ندوه علميه فى مجال البحث العلمى.<br>
+                2- رحله الى مدينه الاسكندريه لزياره المكتيه – القلعه –المتحف المائى.<br>
+                3- عمل دوره الاسعافات الاوليه.<br>
+                4- عمل ورش عمل تعليم الطلبه فى المشروعات الصغيره أو الصناعات الغذائيه.
+            </div><!-- /.activities-content-desc -->
+            <div class="link-activity">
+                <a href="RegistrationPages/RegisterScientific.html" target="_blank">للتسجيل اضغط هنا</a>
+            </div><!-- /.link-activity -->
+        </div><!-- /.container -->
+    </div><!-- /.activities-content -->
+    
+
+
+    <footer>
+        <div class="footer-top">
+            <div class="content-foot-top">
+                <a href="https://www.facebook.com/scienceassuit/?locale=ar_AR"
+                target="_blank"> <i class="fa fa-facebook fa-2x"></i></a>
+                <a href="https://twitter.com/faculty_eng" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                <a href="https://www.youtube.com/user/engassiut" target="_blank"><i class="fa fa-youtube fa-2x"></i></a>
+                <a href="https://plus.google.com/108246426231445774998/posts" target="_blank">
+                    <i class="fa fa-google-plus fa-2x"></i></a>
+            </div> 
+        </div><!-- /.footer-top -->
+
+        <!-- footer-middle -->
+        <div class="footer-middle">
+            <div class="content-footer-middle">
+                <div class="footer-middle-item">
+                    <div class="footer-middle-img">
+                        <img src="https://www.aun.edu.eg/social_work/themes/gavias_edmix/logo.png">
+                        <h3> جامعة اسيوط</h3>
+                    </div>
+                    <p class="footer-middle-info">
+                        جامعة أسيوط هي جامعة تقع في أسيوط ، مصر. تأسست في أكتوبر 1957 كأول جامعة في صعيد مصر لإعداد الخريجين بأصول المعرفة العلمية.
+                    </p>
+                </div><!-- /.footer-middle-item -->
+                <div class="content-links">
+                    <h2 class="footer-middle-title">روابط هامة</h2>
+                    <div class="links-item">
+                        <ul class="links-item-list">
+                            <li>
+                                <span class="chevron right"></span>
+                                <a href="https://www.aun.edu.eg/science/ar/node/15877"
+                                target="_blank">  المكتبة الرقمية </a>
+                            </li>
+                            <li>
+                                <span class="chevron right"></span>
+                                <a href="https://www.aun.edu.eg/science/ar/alumni/contact" target="_blank">دبلومة الفيزياء الطبية</a>
+                            </li>
+                            <li>
+                                <span class="chevron right"></span>
+                                <a href="https://stdf.eg/" target="_blank">
+                                    صندوق العلوم والتنمية التكنولوجية
+                                </a>
+                            </li>
+                            <li>
+                                <span class="chevron right"></span>
+                                <a href="https://www.aun.edu.eg/science/ar/node/15879" target="_blank">
+                                    اعتماد شهادة دبلوم الدراسات العليا المهنية في الكيمياء الحيوية
+                                    </a>
+                            </li>
+                        </ul><!-- /.links-item-list -->
+                </div><!-- /.links-item -->
+
+                <div class="links-item">
+                    <ul class="links-item-list">
+                        <li>
+                            <span class="chevron right"></span>
+                            <a href="https://www.aun.edu.eg/science/ar/alumni/contact"
+                            target="_blank">الصفحة الرئيسية</a>
+                        </li>
+                        <li>
+                            <span class="chevron right"></span>
+                        <a href="https://www.aun.edu.eg/science/ar/node/15878"
+                        target="_blank">
+                            القوانين الحاكمة
+                        </a>
+                        </li>
+                        <li>
+                            <span class="chevron right"></span>
+                            <a href="https://www.aun.edu.eg/science/sites/default/files/important-links/public.pdf" target="_blank">
+                            اصدارات وإنشاءات الكلية
+                        </a></li>
+                        <li>
+                            <span class="chevron right"></span>
+                            <a href="https://www.aun.edu.eg/science/ar/node/15876s" target="_blank">
+                                قوائم بأسماء خريجي كلية العلوم منذ إنشائها</a></li>
+
+                        </ul><!-- /.links-item-list -->
+                    </div><!-- /.links-item -->
+                </div><!-- /.content-links -->
+    <!--///// footer-middle-address//////////////////////////// -->
+    <div class="footer-middle-address">
+        <h2 class="adderss-title">عنواننا</h2>
+        <div class="content-adress">
+                    <div class="iframe-adress">
+                        <iframe allowfullscreen="" aria-hidden="false" frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.939886681678!2d31.171103474301564!3d27.189626078511775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14450956196c3e45%3A0x2503bca7d3026a24!2sAssiut%20University%2C%20Faculty%20Of%20Science!5e0!3m2!1sen!2seg!4v1589886790902!5m2!1sen!2seg"  tabindex="0"></iframe>
+                    </div>
+                    <ul class="adderss-list">
+                        <li>
+                            <div style="margin-bottom: 5px;">
+                                <i class="fa fa-map-marker"></i>
+                                <a href="https://www.google.com/maps/place/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A3%D8%B3%D9%8A%D9%88%D8%B7%E2%80%AD/@27.1874915,31.1702924,18z/data=!3m1!4b1!4m6!3m5!1s0x14450bfb7a5cb539:0x38d71298729ac58a!8m2!3d27.1874915!4d31.1702924!16s%2Fm%2F02q4gyd" target="_blank"> كلية العلوم</a>،
+                                <a href="https://www.google.com/maps/place/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A3%D8%B3%D9%8A%D9%88%D8%B7%E2%80%AD/@27.1874915,31.1702924,18z/data=!3m1!4b1!4m6!3m5!1s0x14450bfb7a5cb539:0x38d71298729ac58a!8m2!3d27.1874915!4d31.1702924!16s%2Fm%2F02q4gyd" target="_blank">جامعة اسيوط</a>،
+                            </div>
+                            <a href="https://www.google.com/maps/place/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A3%D8%B3%D9%8A%D9%88%D8%B7%E2%80%AD/@27.1874915,31.1702924,18z/data=!3m1!4b1!4m6!3m5!1s0x14450bfb7a5cb539:0x38d71298729ac58a!8m2!3d27.1874915!4d31.1702924!16s%2Fm%2F02q4gyd" target="_blank">أسيوط</a>،
+                            <a href="https://www.google.com/maps/place/%D8%AC%D8%A7%D9%85%D8%B9%D8%A9+%D8%A3%D8%B3%D9%8A%D9%88%D8%B7%E2%80%AD/@27.1874915,31.1702924,18z/data=!3m1!4b1!4m6!3m5!1s0x14450bfb7a5cb539:0x38d71298729ac58a!8m2!3d27.1874915!4d31.1702924!16s%2Fm%2F02q4gyd" target="_blank">مصر</a></li>
+                            <li><i class="fa fa-phone"></i><a href="tel:0882345643" target="_blank">(088) 2345643 - 2412000</a></li>
+                            <li><i class="fa fa-envelope-o"></i>
+                                <a href="mailto:sci@aun.edu.eg" target="_blank"> sci@aun.edu.eg </a></li>
+                        </ul>
+                    </div>
+                </div><!-- /.footer-middle-item -->
+            </div>
+        </div><!-- /.footer-middle -->
+
+        <div class="footer-bottom copyright">
+            <div class="footer-bottom-links">
+                <a href="https://www.aun.edu.eg/science/ar" target="_blank">الصفحة الرئيسية </a> &#x2223;
+                <a href="https://www.aun.edu.eg/science/ar/contact" target="_blank"> تواصل معنا </a>&#x2223;
+                <a href="https://www.aun.edu.eg/science/ar/alasylt-almtkrrt" target="_blank"> الأسئلة المتكررة</a>&#x2223;
+                <a href="https://www.aun.edu.eg/science/ar/form/mqtrhat-wshkawy" target="_blank"> المقترحات والشكاوى</a>&#x2223;
+            </div>
+            <div class="footer-bottom-item">
+                جميع الحقوق محفوظة &COPY; <a href="https://www.aun.edu.eg/main/" target="_blank">جامعة أسيوط </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {
+        scrollFunction()
+    };
+    
+    function scrollFunction() {
+            if (document.body.scrollTop > 110 || document.documentElement.scrollTop > 110 ) {
+            mybutton.style.display = "flex";
+            mybutton.style.bottom = "30px";
+    } else {
+            mybutton.style.bottom = "-100px";
+        }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    
+    </script>

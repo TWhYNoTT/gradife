@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- link css -->
+    <link rel="stylesheet" href="css/CssCommonRrgiter.css">
+    <style>
+        .container {
+            height: 700px;
+        }
+
+        /* Form  Section */
+        .content-form {
+            height: 500px;
+        }
+
+        .checkbox {
+            width: 80%;
+            margin: 35px auto 0;
+        }
+
+        .labal-check {
+            width: 140px;
+        }
+
+        .span-label {
+            display: block;
+            width: fit-content;
+
+        }
+
+        .span-label:after {
+            height: 3px;
+            transition: width 1.2s;
+            -webkit-transition: width 1.2s;
+            -moz-transition: width 1.2s;
+            -ms-transition: width 1.2s;
+            -o-transition: width 1.2s;
+        }
+    </style>
+    <title>النشاطي الثقافي </title>
+</head>
+
+<body>
+    <!-- container  ////////////////////////////////////////////////-->
+    <div class="container">
+
+        <div class="content-title">
+            <h2 class="title">النشاط الثقافي</h2>
+
+            <hr style="margin: 15px 0;">
+
+            <span class="content-desc">
+                عزيزي الطالب ... عزيزتي الطالبة قم بملئ بياناتك واختيار النشاط المناسب لك و يمكنك اختيار اكثر من نشاط
+                كلا حسب موهبته
+            </span> <!-- /.content-desc -->
+        </div><!-- /.content-title -->
+
+
+        <!--  content-title  -->
+
+        <div class="content-form">
+            <form method="POST" action="https://graduations.onrender.com/api/activity">
+                <input type="text" required name="activityName" value="النشاط التقافي" style="visibility: hidden;">
+                <div class="data-line1">
+                    <div class="item-data-lin1">
+                        <label for="input-name">الاسم<span class="colon"> :</span></label>
+                        <input type="text" id="input-name" class="input-data" placeholder="اسم الطالب رباعي"
+                            name="studentName" required autofocus>
+
+                        <label for="input-address-study">عنوان الاقامة اثناء الدراسة<span class="colon">
+                                :</span></label>
+                        <input type="text" id="input-address-study" class="input-data"
+                            placeholder="عنوان الاقامة اثناء الدراسة" name="addressDuringStudy" required>
+                    </div>
+                    <div class="item-data-lin1">
+                        <label for="input-phoneNumber">تليفون
+                            <span class="colon"> :</span>
+                        </label>
+                        <input type="text" id="input-phoneNumber" class="input-data" placeholder="رقم الهاتف"
+                            name="phoneNumber" required>
+
+                        <label for="input-address-holiday">عنوان الاقامة اثناء الاجازة
+                            <span class="colon"> :</span>
+                        </label>
+                        <input type="text" id="input-address-holiday" class="input-data"
+                            placeholder="عنوان الاقامة اثناء الاجازة" name="addressDuringVacation" required>
+                    </div>
+                </div> <!-- /.data-line -->
+                <div class="level-content">
+                    <label for="selectLevel">المستوي
+                        <span class="colon"> :</span>
+                    </label>
+                    <select name="level" id="selectLevel" class="select-level" required>
+                        <option hidden>الفرقة</option>
+                        <option value="1">الاولى</option>
+                        <option value="2">الثانية</option>
+                        <option value="3">الثالثة</option>
+                        <option value="4">الرابعة</option>
+                    </select><!--/.select-level  -->
+                </div> <!-- /.level-content -->
+                <div class="checkbox">
+                    <div class="groubcheck">
+                        <input type="checkbox" name="activities[]" value="تاليف والقاء الشعر">
+                        <label for="porty" class="labal-check">
+                            <span class="span-label">
+                                تأليف والقاء الشعر
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="تاليسف والقاء الزجل">
+                        <label for="basketball" class="labal-check">
+                            <span class="span-label">
+                                تأليف والقاء الزجل
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="كتابة قصة قصيرة">
+                        <label for="basketball" class="labal-check">
+                            <span class="span-label">
+                                كتابة قصة قصيرة
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="تنظيم ندوات ومؤتمرات">
+                        <label for="seminars" class="labal-check">
+                            <span class="span-label">
+                                تنظيم ندوات ومؤتمرات
+                            </span>
+                        </label>
+
+
+                    </div><!-- /.groubcheck -->
+
+
+                    <div class="groubcheck">
+                        <input type="checkbox" name="activities[]" value="ابحاث ثقافية">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                ابحاث ثقافية
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="صحافة">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                صحافة
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="عمل مجلات حائط">
+                        <labal class="labal-check">
+                            <span class="span-label">
+                                عمل مجلات حائط
+                            </span>
+                            </label>
+
+
+                    </div><!-- /.groubcheck -->
+                    <!-- groubcheck -->
+                    <div class="groubcheck">
+                        <input type="checkbox" name="activities[]" value="النقد الادبي">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                النقد الادبي
+                            </span>
+                        </label>
+                        <input type="checkbox" name="activities[]" value="مقال">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                مقال
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="قران كريم">
+                        <labal class="labal-check">
+                            <span class="span-label">
+                                القرآن الكريم
+                            </span>
+                            </label>
+
+                    </div><!-- /.groubcheck -->
+
+                    <div class="groubcheck">
+                        <input type="checkbox" name="activities[]" value="خطابة">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                خطابة
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="معلومات عامة">
+                        <label for="religious-incantations" class="labal-check">
+                            <span class="span-label">
+                                معلومات عامة
+                            </span>
+                        </label>
+
+                        <input type="checkbox" name="activities[]" value="خط عربي">
+                        <labal class="labal-check">
+                            <span class="span-label">
+                                خط عربي
+                            </span>
+                            </label>
+                    </div>
+
+                </div><!-- /.checkbox -->
+                <div class="button-reg">
+                    <input type="submit" value="تسجيل">
+                    <input type="reset" value="محو النموذج">
+                </div><!-- /.button-reg -->
+            </form>
+        </div><!-- /.content-form -->
+    </div><!-- /.container -->
+    <script src="submit.js"></script>
+</body>
+
+</html>

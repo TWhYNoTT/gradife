@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التحقق من حالة الطلب</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #007bff;
+            background-color: #0c417a;
+            color: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        .logo {
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #af1b1b;
+            padding: 15px;
+            border-radius: 5px;
+            transition:background-color .4s ;
+        }
+        .logo:hover{
+            color: white;
+            background-color: rgb(124, 14, 14);
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        @media (max-width: 767px) {
+            header {
+                height: auto;
+                padding: 20px 0;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                margin-bottom: 20px;
+                flex: 1 0 100%;
+                text-align: center;
+            }
+        }
+
+        #activity label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        #activity p,
+        #activity h2 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            
+        }
+        
+        #activity {
+            direction: rtl;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 19px;
+        }
+
+        #activity label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        #activity p,
+        #activity h2 {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                max-width: 100%;
+                padding: 0 20px;
+            }
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            padding: 5px 0;
+            border: 0.7px solid rgb(233, 233, 233);
+        }
+        #search-form {
+            direction: rtl;
+            background-color: #1b1b1b;
+            color: #ffff;
+            padding: 15px;
+            width: 96%;
+        }
+        #search-form input ,#search-form button{
+            direction: ltr;
+            border: 0;
+            outline: 0;
+            padding: 5px;
+            border-radius: 2px;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        #search-form button {
+            background-color: rgb(7, 7, 62);
+            padding: 10px;
+            color: #fff;
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">الرجوع الى الصفحة الرئيسية</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="search-form">
+                <button type="submit">Search</button>
+                <input type="text" id="activity-id" name="activity-id">
+                <label for="activity-id"> : Enter Activity ID</label>
+            </form>
+
+            <div class="container">
+                <div id="activity">
+                    <div class="row">
+                        <label for="activity-name"> اسم النشاط : </label>
+                        <p class="activity-name"></p>
+                    </div>
+                    <div class="row">
+                        <label for="student-name">اسم الطالب : </label>
+                        <p class="student-name"></p>
+                    </div>
+                    <div class="row">
+                        <label for="address-during-study">العنوان اثناء الدراسه : </label>
+                        <p class="address-during-study"></p>
+                    </div>
+                    <div class="row">
+                        <label for="address-during-vacation">العنوان اثناء الاجازه : </label>
+                        <p class="address-during-vacation"></p>
+                    </div>
+                    <div class="row">
+                        <label for="phone-number">رقم التليفون : </label>
+                        <p class="phone-number"></p>
+                    </div>
+                    <div class="row">
+                        <label for="level">الفرقه : </label>
+                        <p class="level"></p>
+                    </div>
+                    <div class="row">
+                        <label for="activities">الانشطه : </label>
+                        <p class="activities"></p>
+                    </div>
+                    <div class="row">
+                        <label for="status">حالة الطلب : </label>
+                        <p class="status"></p>
+                    </div>
+                    <div class="row">
+                        <label for="created-at">تاريخ انشاء الطلب : </label>
+                        <p class="created-at"></p>
+                    </div>
+                    <div class="row">
+                        <label for="updated-at">تاريخ تحديث الطلب : </label>
+                        <p class="updated-at"></p>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const activityIdPa = urlParams.get('id');
+        const form = document.querySelector('#search-form');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            fetchActivityById()
+        });
+
+
+
+        async function fetchActivityById() {
+            const activityId = document.querySelector('#activity-id').value;
+            const url = `https://graduations.onrender.com/api/activity/${activityId || 0}`;
+
+            try {
+                const response = await fetch(url);
+                const activity = await response.json();
+                if (response.ok) {
+                    renderActivity(activity);
+                }
+                else throw new Error(activity.message)
+            } catch (error) {
+                alert(error);
+            }
+        }
+
+        function renderActivity(activity) {
+            const activityContainer = document.querySelector('#activity');
+            activityContainer.querySelector('.activity-name').textContent = activity.activityName;
+            activityContainer.querySelector('.student-name').textContent = activity.studentName;
+            activityContainer.querySelector('.address-during-study').textContent = activity.addressDuringStudy;
+            activityContainer.querySelector('.address-during-vacation').textContent = activity.addressDuringVacation;
+            activityContainer.querySelector('.phone-number').textContent = activity.phoneNumber;
+            activityContainer.querySelector('.level').textContent = activity.level;
+            activityContainer.querySelector('.activities').textContent = activity.activities.join(', ');
+            activityContainer.querySelector('.status').textContent = activity.status ? 'مكتمل' : 'تحت الفحص';
+            activityContainer.querySelector('.created-at').textContent = new Date(activity.createdAt).toLocaleString();
+            activityContainer.querySelector('.updated-at').textContent = new Date(activity.updatedAt).toLocaleString();
+        }
+
+        if (activityIdPa) {
+
+            document.querySelector('#activity-id').value = activityIdPa
+            fetchActivityById()
+        }
+    </script>
+</body>
+
+</html>

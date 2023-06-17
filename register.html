@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../Css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #0a1554;
+            color: #fff;
+            width: 50%;
+            margin: 30px auto;
+            padding: 25px 0;
+            border-radius: 5px;
+            font-family: emoji;
+        }
+
+
+
+        .form-container {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+            font-weight: bolder;
+            font-family: system-ui;
+        }
+
+        .content-input {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 4px;
+            height: 40px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: -4px 7px 5px rgba(0, 0, 0, 0.2);
+            outline: 0;
+            border: .5px solid #c0c3c5;
+        }
+        input {
+            width: 95%;
+            padding: 10px;
+            outline: 0;
+            border: 0;
+            transition:box-shadow .7s ;
+        }
+        input:focus {
+            box-shadow: -3px 4px 1px #0a1541;   
+        }
+        button[type="submit"] {
+            background-color: #0a1554;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 13px 25px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 15px 0px 0 0;
+            transition: background-color .6s ;
+            font-weight: bold;
+
+        }
+
+        button[type="submit"]:hover {
+            background-color: #040434;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #0c417a;
+            color: white;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #af1b1b;
+            padding: 15px;
+            border-radius: 5px;
+            transition:background-color .4s ;
+        }
+        .logo:hover{
+            color: white;
+            background-color: rgb(124, 14, 14);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">الرجوع الى الصفحة الرئيسية</a>
+        </div>
+    </header>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            <div>
+                <label for="firstName">First Name:</label>
+                <span class="content-input">
+                <input type="text" id="firstName" name="firstName" placeholder="first Name" required>
+                </span>
+                <span class="error" id="firstNameError"></span>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <span class="content-input">
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                </span>
+                <span class="error" id="lastNameError"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <span class="content-input">
+                <input type="email" id="email" name="email"  placeholder="Email" required>
+                </span>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <span class="content-input">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class="fa fa-eye-slash" style="font-size: 21px; color:rgb(3, 3, 3)"
+                onclick="myFunction()" id="fa-password"></i>
+                </span>
+                <span class="error" id="passwordError"></span>
+            </div>
+            <button type="submit">Register</button>
+            <span class="error" id="error"></span>
+        </form>
+    </div>
+    <script>
+        // Check if a token already exists in the localStorage
+        const token = localStorage.getItem("token");
+        if (token) {
+            // Redirect to the home page or the dashboard
+            window.location.href = "/activities.html"; // Change to the desired URL
+        }
+
+        const registrationForm = document.getElementById('registrationForm');
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const firstNameError = document.getElementById('firstNameError');
+        const lastNameError = document.getElementById('lastNameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Add event listener for form submit
+        registrationForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            // Validate form data
+            const formData = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                password: password.value
+            };
+            const validation = validateFormData(formData);
+            if (validation.isValid) {
+                displayFormErrors(validation.errors);
+                return;
+            }
+
+            // Send POST request to server
+            fetch('https://graduations.onrender.com/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(async response => {
+                    const res = await response.json()
+                    if (!response.ok) {
+                        throw new Error(res.message);
+                    }
+                    return res;
+                })
+                .then(data => {
+                    // Redirect to login page or show a success message
+                    window.location.href = 'login.html';
+                })
+                .catch(error => {
+                    let errors = { error }
+                    displayFormErrors(errors)
+                });
+        });
+
+        // Validate form data
+        function validateFormData(formData) {
+            const errors = {};
+            if (!formData.firstName || formData.firstName.length < 3) {
+                errors.firstName = 'First name must be at least 3 characters long.';
+            }
+            if (!formData.lastName || formData.lastName.length < 3) {
+                errors.lastName = 'Last name must be at least 3 characters long.';
+            }
+            if (!formData.email || !formData.email.match(/.+@.+..+/)) {
+                errors.email = 'Email must be a valid email address.';
+            }
+            if (!formData.password || !formData.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{}|;':",.\/<>\?]).{8,}$/)) {
+                errors.password = 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.';
+            }
+            return {
+                isValid: Object.keys(errors).length != 0,
+                errors: errors
+            };
+        }
+
+        // Display form errors
+        function displayFormErrors(errors) {
+            firstNameError.textContent = errors.firstName || '';
+            lastNameError.textContent = errors.lastName || '';
+            emailError.textContent = errors.email || '';
+            passwordError.textContent = errors.password || '';
+            error.textContent = errors.error || '';
+        }
+
+        function myFunction() {
+            var x = document.getElementById("password");
+            var y =document.getElementById("fa-password");
+            if (x.type === "password" && y.className === "fa fa-eye-slash") {
+                x.type = "text";
+                y.className = "fa fa-eye";
+            } else {
+                x.type = "password";
+                y.className = "fa fa-eye-slash";
+            }
+        } 
+    </script>
+</body>
+
+</html>

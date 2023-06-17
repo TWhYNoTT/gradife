@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+body{
+    background-color: #eae6e6;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #dedede;
+    width: 95%;
+    margin: 100px auto;
+    text-align: center;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+td , th {
+    display: inline-block;
+    width: 23%;
+    text-align: center;
+    padding: 14px;
+    font-size: 18px;
+}
+
+th {
+    font-style: italic;
+    letter-spacing: 1.7px;
+}
+
+tr .numOrder{
+    width: 5%;
+    font-weight: bolder;
+}
+
+.fristTRow {
+    background-color: #000;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #0f1927;
+    color: #fff;
+}
+
+td a {
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+    background-color: #757a87;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 1px;
+}
+td a:hover {
+    background-color: #757a8796;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #898e96;
+    height: 100px;
+}
+
+footer .footer-bottom-item {
+    text-align: center;
+    font-weight: 900;
+    font-size: 17px;
+    color: #ffffff;
+
+}
+
+.footer-bottom-item a {
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 17.2px;
+    color: #fcfcfc;
+    margin: 0 5px;
+    vertical-align: middle;
+    transition: color .5s , text-decoration .5s ,  text-shadow .5s;
+}

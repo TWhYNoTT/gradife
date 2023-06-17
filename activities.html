@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <title>الانشطه</title>
+
+    <style>
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        
+        .tab button {
+            background-color: inherit;
+            float: right;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 9px;
+        }
+
+        th {
+            background-color: #080707;
+            color: #fff;
+            font-style: italic;
+            text-align: center;
+            padding: 10px;
+            width: 10%;
+        }
+
+        tr:nth-child(even) {
+            background-color: #d5d3d3;
+        }
+
+        tr:hover {
+            background-color: #e6e6e6;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            background-color: #1a2a69;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-right: 4px;
+            width: 70px;
+            font-weight: bold;
+            margin: 2px 0 0 0;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background-color: #818181;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .edit-btn:hover{
+            background-color: #070732;
+        }
+        .delete-btn:hover {
+            background-color: #2d2d2e;
+        }
+
+
+        #popup {
+            border: 1px solid #ddd;
+            padding: 16px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 50px;
+        }
+
+        #popup h2 {
+            margin-top: 0;
+        }
+
+        #popup label {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        #popup input[type="text"],
+        #popup select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #popup button[type="submit"],
+        #cancel-edit {
+            background-color: #1a2a69;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+
+        }
+
+        #cancel-edit {
+            background-color: #818181;
+            border-radius: 5px;
+        }
+
+        #delete-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .delete-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .delete-btns {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #cancel-btn,
+        #confirm-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #cancel-btn {
+            background-color: #c6c6c6;
+            border: 0;
+            font-weight: bold;
+        }
+
+        #confirm-btn {
+            background-color: #17176d;
+            color: #fff;
+            border: 0;
+            font-weight: bold;
+        }
+
+        #logout-btn {
+            background-color: #1a2a69;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: left;
+            font-weight: bold;
+        }
+        h1 {
+            font-style: italic; 
+            width:20%;
+            background-color: #121111;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <a href="activities.html"><button class="tablinks active">ادارة الطلبات</button></a>
+        <a href="users.html"><button class="tablinks">ادارة المستخدمين</button></a>
+        <button id="logout-btn" class="tablinks ">تسجيل الخروج</button>
+
+    </div>
+
+    <div id="tab1" class="tabcontent">
+        <h1>إدارة الطلبات</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>اسم الطالب</th>
+                    <th>رقم التليفون</th>
+                    <th>عنوان الاقامة اثناء الدراسة</th>
+                    <th>عنوان الاقامه اثناء الاجازة</th>
+                    <th>الفرقة</th>
+                    <th>اسم النشاط</th>
+                    <th>حالة الطلب</th>
+                    <th>تاريخ الانشاء</th>
+                    <th>تاريخ التحديث</th>
+                    <th>الاجراءات</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+
+    <div id="popup" style="display: none;">
+        <h2>تعديل</h2>
+        <form id="edit-form">
+            <input type="hidden" id="activity-id">
+
+            <label for="student-name">اسم الطالب</label>
+            <input type="text" id="student-name" name="studentName" required>
+            <label for="phone-number">رقم التليفون</label>
+            <input type="text" id="phone-number" name="phoneNumber" required>
+            <label for="address-during-study">عنوان الاقامة اثناء الدراسة</label>
+            <input type="text" id="address-during-study" name="addressDuringStudy" required>
+            <label for="address-during-vacation">عنوان الاقامه اثناء الاجازة</label>
+            <input type="text" id="address-during-vacation" name="addressDuringVacation" required>
+
+            <label for="level">الفرقه</label>
+            <input type="text" id="level" name="level" required>
+            <label for="activity-name">اسم النشاط</label>
+            <input type="text" id="activity-name" name="activityName" required>
+            <label for="activities">الانشطه</label>
+            <textarea name="activities" cols="40" id="activities" rows="5" required></textarea>
+
+            <label for="status">حالة الطلب</label>
+            <select id="status" name="status" required>
+                <option value="true">مكتمل</option>
+                <option value="false">قيد المراجعه</option>
+            </select>
+            <button type="submit">حفظ</button>
+            <button id="cancel-edit">الغاء</button>
+        </form>
+    </div>
+
+    <div id="delete-modal">
+        <div class="delete-content">
+            <h2>هل انت متأكد من حذف هذا العنصر؟</h2>
+
+            <div class="delete-btns">
+                <button id="cancel-btn">الغاء</button>
+                <button id="confirm-btn">حذف</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        const token = localStorage.getItem("token");
+        if (!token) {
+            // Redirect to the login page or the dashboard
+            window.location.href = "/login.html"; // Change to the desired URL
+        }
+        async function fetchActivityData() {
+            try {
+                const response = await fetch('https://graduations.onrender.com/api/activity/', {
+                    headers: {
+                        'x-auth-token': token,
+                    },
+                });
+                const data = await response.json();
+                const tableBody = document.getElementById('table-body');
+                data.activities.forEach(activity => {
+                    const row = document.createElement('tr');
+                    const activityId = activity._id;
+                    row.dataset.activityId = activityId; // Set the activity ID as a data attribute on the row
+                    const studentNameCell = document.createElement('td');
+                    const phoneNumberCell = document.createElement('td');
+                    const addressDuringStudyCell = document.createElement('td');
+                    const addressDuringVacationCell = document.createElement('td');
+                    const levelCell = document.createElement('td');
+                    const activityNameCell = document.createElement('td');
+                    const statusCell = document.createElement('td');
+                    const createdAtCell = document.createElement('td');
+                    const updatedAtCell = document.createElement('td');
+                    const actionsCell = document.createElement('td');
+                    const editBtn = document.createElement('button');
+                    const deleteBtn = document.createElement('button');
+                    studentNameCell.innerText = activity.studentName;
+                    phoneNumberCell.innerText = activity.phoneNumber;
+                    addressDuringStudyCell.innerText = activity.addressDuringStudy;
+                    addressDuringVacationCell.innerText = activity.addressDuringVacation;
+                    levelCell.innerText = activity.level;
+                    activityNameCell.innerText = activity.activityName;
+                    statusCell.innerText = activity.status ? 'مكتمل' : 'قيد المراجعه';
+                    createdAtCell.innerText = new Date(activity.createdAt).toLocaleString();
+                    updatedAtCell.innerText = new Date(activity.updatedAt).toLocaleString();
+                    editBtn.innerText = 'تعديل';
+                    editBtn.classList.add('edit-btn');
+                    editBtn.addEventListener('click', event => {
+                        event.stopPropagation(); // Stop the event from propagating up the DOM tree
+                        handleEditClick(activity);
+                    });
+                    deleteBtn.innerText = 'حذف';
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.addEventListener('click', event => {
+                        event.stopPropagation(); // Stop the event from propagating up the DOMtree        
+                        handleDeleteClick(activityId);
+                    });
+                    actionsCell.appendChild(editBtn);
+                    actionsCell.appendChild(deleteBtn);
+                    row.appendChild(studentNameCell);
+                    row.appendChild(phoneNumberCell);
+                    row.appendChild(addressDuringStudyCell);
+                    row.appendChild(addressDuringVacationCell);
+                    row.appendChild(levelCell);
+                    row.appendChild(activityNameCell);
+                    row.appendChild(statusCell);
+                    row.appendChild(createdAtCell);
+                    row.appendChild(updatedAtCell);
+                    row.appendChild(actionsCell);
+                    row.addEventListener('click', () => {
+
+                    });
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function handleEditClick(activity) {
+            const popup = document.getElementById('popup');
+            const activityIdInput = document.getElementById('activity-id');
+            const activityNameInput = document.getElementById('activity-name');
+            const studentNameInput = document.getElementById('student-name');
+            const addressDuringStudyInput = document.getElementById('address-during-study');
+            const addressDuringVacationInput = document.getElementById('address-during-vacation');
+            const phoneNumberInput = document.getElementById('phone-number');
+            const levelInput = document.getElementById('level');
+            const activitiesInput = document.getElementById('activities');
+            const statusSelect = document.getElementById('status');
+            const editForm = document.getElementById('edit-form');
+
+            activityIdInput.value = activity._id;
+            activityNameInput.value = activity.activityName;
+            studentNameInput.value = activity.studentName;
+            addressDuringStudyInput.value = activity.addressDuringStudy;
+            addressDuringVacationInput.value = activity.addressDuringVacation;
+            phoneNumberInput.value = activity.phoneNumber;
+            levelInput.value = activity.level;
+            activitiesInput.value = activity.activities;
+            statusSelect.value = activity.status.toString();
+            popup.style.display = 'block';
+
+            const handleSubmit = async (event) => {
+                event.preventDefault();
+
+                if (activityIdInput.value == activity._id) {
+                    const updatedActivity = {
+                        activityName: activityNameInput.value,
+                        studentName: studentNameInput.value,
+                        addressDuringStudy: addressDuringStudyInput.value,
+                        addressDuringVacation: addressDuringVacationInput.value,
+                        phoneNumber: phoneNumberInput.value,
+                        level: levelInput.value,
+                        activities: activitiesInput.value,
+                        status: statusSelect.value === 'true',
+                        updatedAt: new Date().toISOString()
+                    };
+
+                    try {
+                        const response = await fetch(`https://graduations.onrender.com/api/activity/${activity._id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'x-auth-token': token
+
+                            },
+                            body: JSON.stringify(updatedActivity)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error('Failed to update activity');
+                        }
+
+                        const data = await response.json();
+                        const tableBody = document.getElementById('table-body');
+                        const row = tableBody.querySelector(`[data-activity-id="${activity._id}"]`);
+                        row.cells[0].innerText = data.activity.studentName;
+                        row.cells[1].innerText = data.activity.phoneNumber;
+                        row.cells[2].innerText = data.activity.addressDuringStudy;
+                        row.cells[3].innerText = data.activity.addressDuringVacation;
+                        row.cells[4].innerText = data.activity.level;
+                        row.cells[5].innerText = data.activity.activityName;
+                        row.cells[6].innerText = data.activity.status ? 'مكتمل' : 'قيد المراجعه';
+                        activity.activities = data.activity.activities
+                        row.cells[8].innerText = new Date(data.activity.updatedAt).toLocaleString();
+                        popup.style.display = 'none';
+
+                        // Remove event listener
+                        editForm.removeEventListener('submit', handleSubmit);
+                    } catch (error) {
+                        console.error(error);
+                        // Show error message to user
+                    }
+                }
+            };
+
+            editForm.addEventListener('submit', handleSubmit);
+
+            const cancelEditBtn = document.getElementById('cancel-edit');
+            cancelEditBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                popup.style.display = 'none';
+                editForm.removeEventListener('submit', handleSubmit);
+            });
+
+            // Stop event propagation
+            event.stopPropagation();
+        }
+
+        async function handleDeleteClick(activityId) {
+            const deleteModal = document.getElementById('delete-modal');
+            const cancelBtn = document.getElementById('cancel-btn');
+            const confirmBtn = document.getElementById('confirm-btn');
+
+            deleteModal.style.display = 'block';
+
+            const onCancelClick = () => {
+                deleteModal.style.display = 'none';
+                cancelBtn.removeEventListener('click', onCancelClick);
+                confirmBtn.removeEventListener('click', onConfirmClick);
+            };
+
+            const onConfirmClick = async () => {
+                try {
+                    const response = await fetch(`https://graduations.onrender.com/api/activity/${activityId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'x-auth-token': token
+                        }
+                    });
+                    const data = await response.json();
+                    const tableBody = document.getElementById('table-body');
+                    const row = tableBody.querySelector(`[data-activity-id="${activityId}"]`);
+                    row.remove();
+                } catch (error) {
+                    console.error(error);
+                }
+                deleteModal.style.display = 'none';
+                cancelBtn.removeEventListener('click', onCancelClick);
+                confirmBtn.removeEventListener('click', onConfirmClick);
+            };
+
+            cancelBtn.addEventListener('click', onCancelClick);
+
+            confirmBtn.addEventListener('click', onConfirmClick);
+        }
+
+
+
+        fetchActivityData();
+
+        document.getElementById("logout-btn").addEventListener("click", function () {
+            localStorage.removeItem("token");
+            window.location.href = "/login.html"; // Change to the desired URL
+        });
+
+    </script>
+</body>
+
+</html>
