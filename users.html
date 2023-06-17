@@ -397,7 +397,7 @@
         })
 
             .then(async response => {
-                if (response.status = 403) {
+                if (response.status == 403) {
                     userTableBody.innerHTML = `<td colspan="10" style="font-size:25px"><center><b>لا تملك الصلاحيه للدخول لهذه الصفحه<b></center></td>`
                 }
                 else if (response.ok) {
