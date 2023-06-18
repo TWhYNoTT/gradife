@@ -10,6 +10,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
+            height: 650px;
         }
 
         header {
@@ -141,8 +142,6 @@
             color: #fff;
             margin-left: 10px;
             cursor: pointer;
-            border: rgba(255, 255, 255, 0.26) 0.2px solid;
-            border-radius: 7px;
         }
     </style>
 </head>
@@ -245,7 +244,7 @@
             activityContainer.querySelector('.phone-number').textContent = activity.phoneNumber;
             activityContainer.querySelector('.level').textContent = activity.level;
             activityContainer.querySelector('.activities').textContent = activity.activities.join(', ');
-            activityContainer.querySelector('.status').textContent = activity.status ? 'مكتمل' : 'تحت الفحص';
+            activityContainer.querySelector('.status').textContent = activity.status ? 'مكتمل' : 'قيد المراجعه';
             activityContainer.querySelector('.created-at').textContent = new Date(activity.createdAt).toLocaleString();
             activityContainer.querySelector('.updated-at').textContent = new Date(activity.updatedAt).toLocaleString();
         }
