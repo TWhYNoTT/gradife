@@ -240,6 +240,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>م</th>
                         <th>اسم الطالب</th>
                         <th>رقم التليفون</th>
                         <th>عنوان الاقامة اثناء الدراسة</th>
@@ -264,6 +265,7 @@
         <h2>تعديل</h2>
         <form id="edit-form">
             <input type="hidden" id="activity-id">
+
 
             <label for="student-name">اسم الطالب</label>
             <input type="text" id="student-name" name="studentName" required>
@@ -321,10 +323,12 @@
                 });
                 const data = await response.json();
                 const tableBody = document.getElementById('table-body');
+                let i = 1;
                 data.activities.forEach(activity => {
                     const row = document.createElement('tr');
                     const activityId = activity._id;
                     row.dataset.activityId = activityId; // Set the activity ID as a data attribute on the row
+                    const sq = document.createElement('td');
                     const studentNameCell = document.createElement('td');
                     const phoneNumberCell = document.createElement('td');
                     const addressDuringStudyCell = document.createElement('td');
@@ -337,6 +341,7 @@
                     const actionsCell = document.createElement('td');
                     const editBtn = document.createElement('button');
                     const deleteBtn = document.createElement('button');
+                    sq.innerText = i++;
                     studentNameCell.innerText = activity.studentName;
                     phoneNumberCell.innerText = activity.phoneNumber;
                     addressDuringStudyCell.innerText = activity.addressDuringStudy;
@@ -360,6 +365,7 @@
                     });
                     actionsCell.appendChild(editBtn);
                     actionsCell.appendChild(deleteBtn);
+                    row.appendChild(sq);
                     row.appendChild(studentNameCell);
                     row.appendChild(phoneNumberCell);
                     row.appendChild(addressDuringStudyCell);

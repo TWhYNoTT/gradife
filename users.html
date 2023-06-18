@@ -245,6 +245,7 @@
                 <thead>
                     <tr>
                         <!-- <th>ID</th> -->
+                        <th>م</th>
                         <th>الاسم الاول</th>
                         <th>الاسم الاخير</th>
                         <th>الاميل</th>
@@ -405,13 +406,14 @@
                 }
                 else if (response.ok) {
                     users = await response.json()
-
+                    let i = 1;
                     users.forEach(user => {
                         // Add each user row to the table
                         const row = document.createElement('tr');
                         row.setAttribute('data-id', user._id);
                         // <td>${user._id}</td>
                         row.innerHTML = `
+              <td>${i++}</td>
               <td>${user.firstName}</td>
               <td>${user.lastName}</td>
               <td>${user.email}</td>
