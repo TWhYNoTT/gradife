@@ -6,13 +6,15 @@
     <title>المستخدمين</title>
     <style>
         .tab {
-            overflow: hidden;
+            min-width: 100%;
+            width: fit-content;
+
             border: 1px solid #ccc;
             background-color: #f1f1f1;
 
         }
 
-        .tab button {
+        .tab .tablinks {
             background-color: inherit;
             float: right;
             border: none;
@@ -39,7 +41,7 @@
         }
 
         .tabcontent {
-
+            margin-top: 50px;
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
@@ -235,27 +237,29 @@
         <a href="activities.html"> <button class="tablinks">ادارة الطلبات</button></a>
         <a href="users.html"><button class="tablinks active">ادارة المستخدمين</button></a>
         <button id="logout-btn" class="tablinks ">تسجيل الخروج</button>
+
+        <div id="tab1" class="tabcontent">
+
+            <h1>ادارة المستخدمين</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <!-- <th>ID</th> -->
+                        <th>الاسم الاول</th>
+                        <th>الاسم الاخير</th>
+                        <th>الاميل</th>
+                        <th>مشرف</th>
+                        <th>الاجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                </tbody>
+            </table>
+        </div>
     </div>
 
 
-    <div id="tab1" class="tabcontent">
 
-        <h1>ادارة المستخدمين</h1>
-        <table>
-            <thead>
-                <tr>
-                    <!-- <th>ID</th> -->
-                    <th>الاسم الاول</th>
-                    <th>الاسم الاخير</th>
-                    <th>الاميل</th>
-                    <th>مشرف</th>
-                    <th>الاجراءات</th>
-                </tr>
-            </thead>
-            <tbody id="userTableBody">
-            </tbody>
-        </table>
-    </div>
 
 
     <div id="editPopup" class="popup">

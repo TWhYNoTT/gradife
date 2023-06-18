@@ -6,12 +6,13 @@
 
     <style>
         .tab {
-            overflow: hidden;
+            min-width: 100%;
+            width: fit-content;
             border: 1px solid #ccc;
             background-color: #f1f1f1;
         }
-        
-        .tab button {
+
+        .tab .tablinks {
             background-color: inherit;
             float: right;
             border: none;
@@ -32,7 +33,7 @@
         }
 
         .tabcontent {
-
+            margin-top: 50px;
             padding: 6px 12px;
             border: 1px solid #ccc;
             border-top: none;
@@ -98,9 +99,10 @@
             font-weight: bold;
         }
 
-        .edit-btn:hover{
+        .edit-btn:hover {
             background-color: #070732;
         }
+
         .delete-btn:hover {
             background-color: #2d2d2e;
         }
@@ -109,7 +111,7 @@
         #popup {
             border: 1px solid #ddd;
             padding: 16px;
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -215,9 +217,10 @@
             float: left;
             font-weight: bold;
         }
+
         h1 {
-            font-style: italic; 
-            width:20%;
+            font-style: italic;
+            width: 20%;
             background-color: #121111;
             color: #fff;
             text-align: center;
@@ -232,29 +235,29 @@
         <a href="activities.html"><button class="tablinks active">ادارة الطلبات</button></a>
         <a href="users.html"><button class="tablinks">ادارة المستخدمين</button></a>
         <button id="logout-btn" class="tablinks ">تسجيل الخروج</button>
-
+        <div id="tab1" class="tabcontent">
+            <h1>إدارة الطلبات</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>اسم الطالب</th>
+                        <th>رقم التليفون</th>
+                        <th>عنوان الاقامة اثناء الدراسة</th>
+                        <th>عنوان الاقامه اثناء الاجازة</th>
+                        <th>الفرقة</th>
+                        <th>اسم النشاط</th>
+                        <th>حالة الطلب</th>
+                        <th>تاريخ الانشاء</th>
+                        <th>تاريخ التحديث</th>
+                        <th>الاجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
     </div>
 
-    <div id="tab1" class="tabcontent">
-        <h1>إدارة الطلبات</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>اسم الطالب</th>
-                    <th>رقم التليفون</th>
-                    <th>عنوان الاقامة اثناء الدراسة</th>
-                    <th>عنوان الاقامه اثناء الاجازة</th>
-                    <th>الفرقة</th>
-                    <th>اسم النشاط</th>
-                    <th>حالة الطلب</th>
-                    <th>تاريخ الانشاء</th>
-                    <th>تاريخ التحديث</th>
-                    <th>الاجراءات</th>
-                </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
-    </div>
+
 
 
     <div id="popup" style="display: none;">
