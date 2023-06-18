@@ -66,7 +66,7 @@
     background-color: #014871 ;
     border-radius: 5px;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 17.4px;
     color: #d7ede2;
 }
 
@@ -105,8 +105,7 @@ form {
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 15px;
-    /* background-color: #d7ede2; */
-    font-size: 18px;
+    font-size: 16.5px;
 }   
 
 .input-data:focus {
@@ -128,7 +127,7 @@ form {
     height: 35px;
     padding: 5px;
     border-radius: 5px;
-    font-size: 19px;
+    font-size: 17px;
     margin-right: 10px;
     background-color: #d7ede2;
     color: #3c4041;
@@ -183,14 +182,16 @@ input[type="submit"] ,input[type="reset"] {
     width: 18%;
     padding: 10px;
     background-color: #c8d7d0;
-    font-size: 18px;
+    font-size: 17px;
     color: #0f2f40;
     border: 0;
     outline: 0;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-    transition: box-shadow .5s ,background-color .5s ,color .5s ;
+    transition: box-shadow .5s ,background-color .5s ,color .5s;
+    font-style: italic;
+
 }
 
 input[type="submit"]:hover,
